@@ -1,6 +1,6 @@
 <style>
   .container {
-    background-image: url('https://img.freepik.com/foto-gratis/escena-desenfocada-centro-comercial_1203-394.jpg?t=st=1720540598~exp=1720544198~hmac=2dbd21a97b61afdfb35632de984ddd0f7c6664b434857947182b536795257e29&w=1800'); /* Reemplaza con la ruta de tu imagen */
+    background-image: url('https://img.freepik.com/foto-gratis/escena-desenfocada-centro-comercial_1203-394.jpg?t=st=1720540598~exp=1720544198~hmac=2dbd21a97b61afdfb35632de984ddd0f7c6664b434857947182b536795257e29&w=1800'); 
     background-size: cover;
     background-position: center;
     min-height: 100vh; 
