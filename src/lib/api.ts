@@ -1,6 +1,10 @@
-const API_BASE_URL = 'https://ecommerce-backend-osvaldos-projects-58ee8798.vercel.app'; 
+// src/lib/api.ts
 
-export async function fetchProducts(fetch: typeof window.fetch) {
+import type { Product } from './types';
+
+const API_BASE_URL = 'https://ecommerce-backend-osvaldos-projects-58ee8798.vercel.app';
+
+export async function fetchProducts(fetch: typeof window.fetch): Promise<Product[]> {
   const response = await fetch(`${API_BASE_URL}/api/products`);
   if (!response.ok) {
     throw new Error('Failed to fetch products');
@@ -8,15 +12,13 @@ export async function fetchProducts(fetch: typeof window.fetch) {
   return response.json();
 }
 
-export async function OnListaProductos(fetch: typeof window.fetch) {
-  const response = await fetch(`${API_BASE_URL}/api/orders`);
-  if (!response.ok) {
-    throw new Error('Failed to fetch orders');
+export async function fetchOrders() {
+    const response = await fetch(`${API_BASE_URL}/orders`);
+    return await response.json();
   }
-  return response.json();
-}
+  
 
-export async function onAgregarProductos(product: { name: string, description: string, price: number, stock: number, category: string }) {
+export async function addProduct(product: Partial<Product>): Promise<Product> {
   const response = await fetch(`${API_BASE_URL}/api/products`, {
     method: 'POST',
     headers: {
@@ -30,7 +32,7 @@ export async function onAgregarProductos(product: { name: string, description: s
   return response.json();
 }
 
-export async function OnEliminarProductos(id: string) {
+export async function deleteProduct(id: string): Promise<void> {
   const response = await fetch(`${API_BASE_URL}/api/products/${id}`, {
     method: 'DELETE',
   });
